@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+$primary-bg-color: #901c1c;
+$secondary-bg-color: #db8876;
+$primary-font-color: #d3573c;
+$secondary-font-color: #901c1c;
+$ternary-bg-color: #fafafa;
+$ternary-font-color: #525252;
+$primary-font-family: DM Sans;
+$fontawesome : "Font Awesome 5 Free";
+$radius-small: 8px;
+
+.photograph {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  height: 100%;
+
+  @media screen and (max-width: 768px) {
+    width: auto;
+  }
+  @media screen and (max-width: 480px) {
+    margin: 20px 0;
+  }
+  & > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	text-decoration: none;
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      object-fit: cover;
+    }
+    h2 {
+      color: $primary-font-color;
+      text-align: center;
+      font-weight: 400;
+      font-size: 36px;
+      margin: 0;
+    }
+    
+
+  }
+  p {
+    margin: 2px;
+  }
+}
+
+.city {
+  color: $secondary-font-color;
+}
+
+.description {
+  color: black;
+}
+
+.price {
+  color: $ternary-font-color;
+}
+
+*:focus {
+  outline: solid 2px black;
+}
+
+p,h1,h2,h3,h4,h5,h6,a,span,li,ul,ol,input,textarea,select {
+  font-family: $primary-font-family;
+}
+.button {
+  background-color: $primary-bg-color;
+  color: white;
+  border: none;
+  border-radius: $radius-small;
+  padding: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 23px;
+
+  &:hover,
+  &:focus {
+    background-color: $secondary-bg-color;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+.link {
+  background-color: white;
+  color: $secondary-font-color;
+  border: 1px solid #c4c4c4;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 5px 5px;
+  text-decoration: none;
+  &:hover,
+  &:focus,
+  &--active {
+    background-color: $primary-bg-color;
+    color: white;
+    cursor: pointer;
+    outline: none;
+  }
+
+  @media screen and (max-width: 480px) {
+  padding: 2px 5px;
+  font-size: 12px;
+
+  }
+}
+
+/* The container <div> - needed to position the dropdown content */
+@mixin transition($x) {
+  transition: $x;
+  -webkit-transition: $x;
+  -moz-transition: $x;
+  -ms-transition: $x;
+  -o-transition: $x;
+}
+
+.dropdown {
+  width: 150px;
+  background-color: $primary-bg-color;
+  border-radius: $radius-small;
+  color: white;
+  height: 50px;
+  @include transition(all 0.5s ease 0s);
+  overflow: hidden;
+  &:hover {
+    height: 150px;
+    @include transition(all 0.5s ease 0s);
+    :first-child::before {
+      content: 'X';
+    }
+  }
+  cursor: pointer;
+  * {
+    font-weight: bold;
+    position: relative;
+    margin: 0;
+    padding: 15px;
+    display: block;
+
+    &:hover {
+      background-color: $secondary-bg-color;
+    }
+    &::before {
+      width: 90%;
+      height: 1px;
+      content: '';
+      background-color: white;
+      position: absolute;
+      top: 0;
+      left: 8px;
+    }
+  }
+  :first-child {
+    border-radius: $radius-small $radius-small 0 0;
+    &::before {
+      position: absolute;
+      content: 'X';
+      right: 8px;
+      padding-top: 1px;
+      width: auto;
+      top: auto;
+      left: auto;
+      background-color: transparent;
+    }
+  }
+  :last-child {
+    border-radius: 0 0 $radius-small $radius-small;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1600px;
+
+}
